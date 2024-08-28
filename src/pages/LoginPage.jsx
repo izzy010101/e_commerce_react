@@ -94,21 +94,6 @@ const LoginPage = () => {
               )}
             </div>
 
-            <div className="block mt-4">
-              <label htmlFor="remember_me" className="inline-flex items-center">
-                <input
-                  id="remember_me"
-                  type="checkbox"
-                  className="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-[#b8a93e] shadow-sm focus:ring-[#b8a93e] dark:focus:ring-[#b8a93e] dark:focus:ring-offset-[#b8a93e] w-4 h-4 appearance-none p-0 bg-white border checked:bg-[#b8a93e] checked:border-[#b8a93e]"
-                  checked={rememberMe}
-                  onChange={(e) => setRememberMe(e.target.checked)}
-                />
-                <span className="ms-2 text-sm text-gray-600 dark:text-gray-400">
-                  Remember me
-                </span>
-              </label>
-            </div>
-
             <div className="flex items-center justify-end mt-4">
               <Link
                 to="/forgot-password"

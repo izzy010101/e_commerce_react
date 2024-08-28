@@ -26,7 +26,6 @@ const CartPage = () => {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, place order!',
     }).then((result) => {
-      console.log(result);
       if (result.isConfirmed) {
         axiosInstance
           .post('orders', { user_id: user?.id, total_price: totalCost })

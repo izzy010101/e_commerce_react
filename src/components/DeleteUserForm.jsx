@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import axiosInstance from '../api/axios';
 
 const DeleteUserForm = () => {
   const [password, setPassword] = useState('');
@@ -11,12 +12,14 @@ const DeleteUserForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axiosInstance.delete('/profile/delete', {
+      console.log('Submitting delete request with password:', password);
+      await axiosInstance.delete('/profile/delete_user', {
         data: { password },
       });
-      setStatus('Account deleted successfully.');
       logout();
       navigate('/login');
+      setStatus('Account deleted successfully.');
+      
     } catch (error) {
       setStatus('Failed to delete account.');
     }
@@ -39,7 +42,7 @@ const DeleteUserForm = () => {
             placeholder="Enter your password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
+            // required
           />
         </div>
 
